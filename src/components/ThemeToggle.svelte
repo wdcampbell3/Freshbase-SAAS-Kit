@@ -41,7 +41,7 @@
 
     <!-- sun icon (shows when dark mode is Active i.e. unchecked -> Switch to Light) -->
     <svg
-      class="swap-off h-5 w-5 fill-current text-yellow-400"
+      class="swap-off h-5 w-5 fill-current text-white"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
     >

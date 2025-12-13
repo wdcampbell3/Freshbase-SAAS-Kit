@@ -46,20 +46,33 @@ This project follows the utility-first philosophy of **Tailwind CSS** combined w
 
 ## Customizing Styles
 
-### Colors
-This project uses **Tailwind CSS v4** with **DaisyUI**.
+### Colors (The Easy Way)
+This project includes a built-in **Theme Editor**.
+1.  Navigate to `/styles` (e.g., `http://localhost:5173/styles`).
+2.  Use the color pickers to adjust the palette.
+3.  Toggle "Light/Dark" to edit each mode independently.
+4.  Click **Save** to write changes to `src/app.css` automatically.
+5.  Click **Restore** to reset to the project defaults (`src/lib/theme-defaults.ts`).
 
-To change the color palette (primary, secondary, accent, etc.):
+### Colors (The Manual Way)
+To manually change the palette:
 1.  Open `src/app.css`.
-2.  Locate the `@plugin "daisyui/theme"` block.
-3.  Modify the CSS variables (e.g., `--color-primary`, `--color-secondary`).
+2.  Locate the `@plugin "daisyui/theme"` blocks.
+    - `saasstartertheme`: Dark Mode
+    - `saasstartertheme-light`: Light Mode
+3.  Modify the CSS variables (e.g., `--color-primary`, `--color-base-100`).
 
 Example `src/app.css`:
 ```css
 @plugin "daisyui/theme" {
-  name: "saasstartertheme";
+  name: "saasstartertheme"; /* Dark */
   default: true;
-  --color-primary: #42a1fa; /* Change this hex code */
+  --color-primary: #42a1fa;
+  /* ... */
+}
+
+@plugin "daisyui/theme" {
+  name: "saasstartertheme-light"; /* Light */
   /* ... */
 }
 ```

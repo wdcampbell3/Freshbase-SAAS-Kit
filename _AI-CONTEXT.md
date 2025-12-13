@@ -61,7 +61,12 @@ This file provides context for AI coding assistants (Gemini, Claude, Copilot, et
 
 ### 5. Styling (DaisyUI)
 - Use DaisyUI component classes (e.g., `btn`, `card`, `input`, `alert`) instead of raw Tailwind utility piles where possible.
-- Theme information is in `app.css` and `tailwind.config.js`.
+- **Theme Editor**: The project includes a visual editor at `/styles`. Use this to preview components.
+- **Theme System**:
+    - `src/app.css` contains two distinct theme blocks: `saasstartertheme` (Dark) and `saasstartertheme-light` (Light).
+    - **Independent Editing**: Changes to one theme MUST NOT affect the other.
+    - **Persistence**: The `/styles` page writes directly to `app.css` via `POST /api/theme/save`.
+    - **Defaults**: `src/lib/theme-defaults.ts` contains the immutable default color values.
 
 ## Critical Rules for AI
 

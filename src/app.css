@@ -21,7 +21,7 @@
   --color-primary-content: #001a1f;
   /* Text color on top of primary elements */
 
-  --color-secondary: #0a0a1f;
+  --color-secondary: #cfcfcf;
   /* Secondary background: Alternative button styles, secondary highlights */
   --color-secondary-content: #ffffff;
   /* Text color on top of secondary elements */
@@ -39,28 +39,28 @@
   --color-base-100: #050510;
   /* Base Background: Main page background, body color */
   /* Base Secondary: Card backgrounds, sidebar backgrounds, input fields */
-  --color-base-200: #1a1a35;
-  --color-base-300: #141430;
+  --color-base-200: #242447;
+  --color-base-300: #196194;
   /* Base Tertiary: Hover states, emphasized card backgrounds */
   --color-base-content: #ffffff;
   /* Base Text: Main body text color, headers, paragraphs */
 
-  --color-info: #00e1ff;
+  --color-info: #01b3cb;
   /* Info: Informational alerts, toasts, badges */
-  --color-info-content: #001a1f;
+  --color-info-content: #ffffff;
   /* Text on info elements */
 
-  --color-success: #00ff9d;
+  --color-success: #00d181;
   /* Success: Success alerts, success buttons, completion states */
-  --color-success-content: #001a1f;
+  --color-success-content: #ffffff;
   /* Text on success elements */
 
   --color-warning: #ffb700;
   /* Warning: Warning alerts, caution states */
-  --color-warning-content: #1a1200;
+  --color-warning-content: #ffffff;
   /* Text on warning elements */
 
-  --color-error: #ff3366;
+  --color-error: #e82f21;
   /* Error: Error alerts, danger buttons, destructive actions */
   --color-error-content: #ffffff;
   /* Text on error elements */
@@ -109,23 +109,23 @@
   /* Base Secondary: Card backgrounds, sidebar backgrounds, input fields */
   --color-base-200: #ffffff;
   /* Base Tertiary: Hover states, emphasized card backgrounds */
-  --color-base-300: #f3f4f6;
+  --color-base-300: #96bee9;
   /* Base Text: Main body text color, headers, paragraphs */
   --color-base-content: #1f2937;
 
-  --color-info: #00e1ff;
+  --color-info: #01b3cb;
   /* Info: Informational alerts, toasts, badges */
-  --color-info-content: #001a1f;
+  --color-info-content: #ffffff;
   /* Text on info elements */
-  --color-success: #00ff9d;
+  --color-success: #00d181;
   /* Success: Success alerts, success buttons, completion states */
-  --color-success-content: #001a1f;
+  --color-success-content: #ffffff;
   /* Text on success elements */
   --color-warning: #ffb700;
   /* Warning: Warning alerts, caution states */
-  --color-warning-content: #1a1200;
+  --color-warning-content: #ffffff;
   /* Text on warning elements */
-  --color-error: #ff3366;
+  --color-error: #e82f21;
   /* Error: Error alerts, danger buttons, destructive actions */
   --color-error-content: #ffffff;
   /* Text on error elements */
@@ -163,8 +163,45 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+    border-color: var(--color-base-300, currentColor);
   }
+}
+
+/* Ensure these overrides take precedence over DaisyUI defaults */
+.input:not(.input-ghost),
+.select:not(.select-ghost),
+.textarea:not(.textarea-ghost),
+.file-input:not(.file-input-ghost) {
+  background-color: var(--color-base-200);
+}
+
+.card:not(.card-bordered) {
+  background-color: var(--color-base-200);
+}
+
+.card:not(.card-bordered) {
+  border: 1px solid color-mix(in srgb, var(--color-base-content), transparent 90%);
+}
+
+.input:not(.input-ghost):hover,
+.input:not(.input-ghost):focus-within,
+.select:not(.select-ghost):hover,
+.select:not(.select-ghost):focus-within,
+.textarea:not(.textarea-ghost):hover,
+.textarea:not(.textarea-ghost):focus-within,
+.file-input:not(.file-input-ghost):hover,
+.file-input:not(.file-input-ghost):focus-within {
+  border-color: var(--color-base-300);
+  outline-color: var(--color-base-300);
+}
+
+.file-input::file-selector-button {
+  background-color: var(--color-base-300);
+  border-color: var(--color-base-300);
+}
+
+.btn-outline {
+  border-width: 2px;
 }
 
 a {

@@ -1,15 +1,14 @@
-# Freshbase SaaS Kit: A SvelteKit Boilerplate
-
+# Freshbase SaaS Kit: Overview
 - **Feature Rich**: user auth, user dashboard, marketing site, blog engine, billing/subscriptions, pricing page, search, emails, and more.
 - **Lightning Performance**: fast pre-rendered pages which score 100/100 on Google PageSpeed.
-- **Delightful Developer Experience**: tools you'll love working with, including SvelteKit, Tailwind, DaisyUI, and Firebase.
+- **Easy Developer Experience**: tools you'll love working with, including SvelteKit, Tailwind, DaisyUI, and Firebase.
 - **Extensible**: all the tools you need to make additional marketing pages, UI components, user dashboards, admin portals, database backends, API endpoints, and more.
 - **MIT Open Source**: Free to use and modify.
 
+---
+
 ## Features
-
-Everything you need to get started for a SaaS company:
-
+Everything you need to get started for a SaaS company including:
 - **User Authentication**: Sign up, sign out, forgot password, email verification, and OAuth. Powered by Firebase Auth.
 - **Marketing Page**: SEO optimization and Sitemap.
 - **Blog Engine**: Rich formatting, RSS, and SEO optimization.
@@ -20,10 +19,12 @@ Everything you need to get started for a SaaS company:
 - **Search**: Lightning fast site search.
 - **Contact Form**: Integrated contact request handling.
 - **Style Toolkit**: Theming and UI components via DaisyUI.
+- **Theme Editor**: Visual editor at `/styles` to customize Light & Dark modes independently.
 - **Extensible Architecture**: Easy to add new features and endpoints.
 
-## Tech Stack
+---
 
+## Tech Stack
 - **Web Framework**: SvelteKit
 - **Styling**: TailwindCSS, DaisyUI
 - **Hosting/Deployment**: Netlify (recommended)
@@ -32,19 +33,26 @@ Everything you need to get started for a SaaS company:
 - **Database**: Firebase Firestore
 - **Payments**: Stripe Checkout & Portal
 
-## Quick Start
+---
+
+## Quick Start Guide
+
+### 0. Prerequisites
+1. You'll need an IDE set up on your computer. I recommend [Antigravity](https://antigravity.google/) or [Cursor](https://cursor.com).
+2. If you're more technically inclined, you can use any code editor you like such as [VS Code](https://code.visualstudio.com).
+
 
 ### 1. Clone the Repo
-1. Make a new folder for your project on your computer.
+1. Make a new project folder on your computer.
 2. Open the folder with Antigravity, Cursor, or any other code editor.
 3. Ask the AI to clone the repo by providing this URL: https://github.com/wdcampbell3/Freshbase-SAAS-Kit
-4. Ask the AI to install dependencies
-5. Ask the AI to run `npm run dev` to start the development server
+4. Confirm that the AI may install dependencies
+5. Request the AI to run `npm run dev` to start the development server
 6. Let the AI fix any audit warnings or update recommendations that come up
-7. Open localhost:5173 in your browser
+7. Open localhost:5173 in your browser to preview the site
+
 
 ### 2. Setup Firebase Project
-
 1. Go to [Firebase Console](https://console.firebase.google.com) and create a new project.
 2. Enable **Authentication** (Email/Password and Google providers). (Create the project on Firebase first, then Build --> Authentication --> Sign-in method --> Email/Password and Google providers—if desired)
 3. Create a **Firestore Database** in production mode. (Build --> Firestore Database --> Create database --> Production mode)
@@ -53,22 +61,22 @@ Everything you need to get started for a SaaS company:
    - **Server-side**: Under Project Settings → Service accounts → Generate new private key and download the JSON with the values.
 5. Update `.env.local` with these values (see `.env.example` for the required fields).
 
-### 3. Setup Cloudinary (Optional, for hosting and optimizing non-UI images, user uploads, etc)
 
+### 3. Setup Cloudinary (Optional, for hosting and optimizing non-UI images, user uploads, etc)
 1. Go to [Cloudinary Console](https://cloudinary.com) and create a new account.
 2. "Go to API Keys" and click "Generate new API Key".
 3. Copy your API Key, API Secret, and Cloud Name.
 4. Update `.env.local` with the provided environment variables (see `.env.example` for the required fields).
 
-### 4. Setup Stripe (Optional, for taking payments)
 
+### 4. Setup Stripe (Optional, for taking payments)
 1. Create a [Stripe account](https://stripe.com).
 2. Get your [Secret API key](https://dashboard.stripe.com/test/apikeys) and add it to `PRIVATE_STRIPE_API_KEY` in `.env.local`.
 3. Create your products in Stripe Dashboard.
 4. Update `src/routes/(marketing)/pricing/pricing_plans.ts` with your Stripe product/price IDs.
 
-### 5. Deploy to Netlify (Optional, for hosting your website)
 
+### 5. Deploy to Netlify (Optional, for hosting your website)
 1. Push your code to a GitHub repository. (Create the repo on GitHub first, then just ask the AI to push the code to the repo by providing the repo URL)
 2. Log in to [Netlify](https://www.netlify.com).
 3. Click "Add new site" → "Import an existing project".
@@ -76,10 +84,12 @@ Everything you need to get started for a SaaS company:
 5. In "Build settings", the defaults (Base directory: `/`, Build command: `npm run build`, Publish directory: `build` or `public`) usually work, but SvelteKit's adapter-auto handles this.
 6. **Crucial**: Add your environment variables in Netlify (Site configuration → Environment variables). Add all keys from your `.env.local`. NOTE: you can copy the values from your `.env.local` file and paste them into Netlify. (just remove any comments, just keep the key-value pairs) ALSO, after importing make sure to check the "Secret values" box for all PRIVATE variables.
 
-## Performance
 
-The selected tech stack creates lightning fast websites:
-- Pre-rendering for marketing pages.
-- Edge-ready deployment.
-- Svelte and Tailwind optimization.
+### 6. Customize Your Design
+1. This kit includes a powerful **Theme Editor** built right in.
+2. Navigate to `http://localhost:5173/styles` in your browser.
+3. You can edit the color palette for both **Light** and **Dark** modes independently.
+4. Changes are previewed in real-time.
+5. Click **Save** to persist changes to `src/app.css` automatically.
+6. Use **Restore Defaults** if you ever need to reset to the original look.
 

@@ -231,7 +231,7 @@
         Everything you need. <span class="text-transparent bg-clip-text bg-linear-to-r from-primary to-cyan-300">Nothing you don't.</span>
       </div>
       <p class="text-xl text-base-content/70">
-         Skip the pricey subscriptions like Lovable, Bolt, or Base64. Own your code.
+         Skip the pricey subscriptions like Lovable, Bolt, or Base44. Own your code.
       </p>
     </div>
 
