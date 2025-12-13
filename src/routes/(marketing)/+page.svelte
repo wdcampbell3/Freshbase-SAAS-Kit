@@ -5,7 +5,7 @@
     WebsiteDescription,
   } from "./../../config"
 
-  const landingHeroTech = "/images/hero-tech.png";
+  const landingHeroTech = "/images/hero-vibe-coder.png";
 
   const ldJson = {
     "@context": "https://schema.org",
@@ -165,13 +165,19 @@
   
   <!-- Hero Image Background - Full width -->
   <div class="absolute inset-0 w-full h-full z-0">
-      <img src="{landingHeroTech}" alt="AI Tech Background" class="w-full h-full object-cover opacity-60" />
+      <!-- Adaptive Overlay: Darkens in Dark Mode, Lightens in Light Mode -->
+      <div class="absolute inset-0 bg-base-100/80 z-10 pointer-events-none"></div>
+
+      <!-- Gradient Fade Overlay -->
+      <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-base-100 to-transparent z-40 pointer-events-none"></div>
+      
+      <img src="{landingHeroTech}" alt="AI Tech Background" class="w-full h-full object-cover opacity-80" />
   </div>
 
   <!-- Content Container -->
-  <div class="text-center py-12 relative z-20 flex flex-col items-center">
+  <div class="text-center py-20 relative z-20 flex flex-col items-center">
     <!-- Text and Buttons -->
-    <div class="max-w-4xl relative z-40 mt-12 px-4">
+    <div class="max-w-4xl relative z-40 mt-16 px-4">
       <div
         class="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-linear-to-r from-primary to-cyan-300 mb-4 tracking-widest uppercase"
       >
@@ -179,7 +185,7 @@
       </div>
 
       <div
-        class="text-5xl md:text-7xl font-extrabold px-2 tracking-tight text-white mb-6"
+        class="text-5xl md:text-7xl font-extrabold px-2 tracking-tight text-base-content mb-6"
         style="line-height: 1.1;"
       >
         Build Free. Launch Fast.
@@ -188,24 +194,24 @@
         </span>
       </div>
 
-      <p class="text-lg md:text-2xl text-cyan-50/90 max-w-2xl mx-auto mb-10 leading-relaxed font-medium drop-shadow-md">
+      <p class="text-lg md:text-2xl text-base-content/90 max-w-2xl mx-auto mb-10 leading-relaxed font-normal drop-shadow-md">
         The custom-designed, low-tech SaaS starter kit. Built for AI-forward IDEs like 
         <span class="text-primary font-bold">Google's Antigravity</span> and <span class="text-primary font-bold">Cursor</span>, 
         allowing you to launch web apps fast and for <span class="text-primary font-bold">FREE</span>.
       </p>
 
-      <div class="text-sm md:text-base text-cyan-50/70 mb-10 font-medium">
+      <div class="text-sm md:text-base text-base-content/70 mb-10 font-medium">
         Built with 
-        <a href="https://kit.svelte.dev" class="link hover:text-primary transition-colors text-white" target="_blank">SvelteKit</a>,
-        <a href="https://firebase.google.com" class="link hover:text-primary transition-colors text-white" target="_blank">Firebase</a>,
-        <a href="https://stripe.com" class="link hover:text-primary transition-colors text-white" target="_blank">Stripe</a>,
-        <a href="https://cloudinary.com" class="link hover:text-primary transition-colors text-white" target="_blank">Cloudinary</a>,
-        <a href="https://tailwindcss.com" class="link hover:text-primary transition-colors text-white" target="_blank">Tailwind</a>, &
-        <a href="https://daisyui.com" class="link hover:text-primary transition-colors text-white" target="_blank">DaisyUI</a>.
+        <a href="https://kit.svelte.dev" class="link hover:text-primary transition-colors text-base-content" target="_blank">SvelteKit</a>,
+        <a href="https://firebase.google.com" class="link hover:text-primary transition-colors text-base-content" target="_blank">Firebase</a>,
+        <a href="https://stripe.com" class="link hover:text-primary transition-colors text-base-content" target="_blank">Stripe</a>,
+        <a href="https://cloudinary.com" class="link hover:text-primary transition-colors text-base-content" target="_blank">Cloudinary</a>,
+        <a href="https://tailwindcss.com" class="link hover:text-primary transition-colors text-base-content" target="_blank">Tailwind</a>, &
+        <a href="https://daisyui.com" class="link hover:text-primary transition-colors text-base-content" target="_blank">DaisyUI</a>.
       </div>
 
       <div class="flex justify-center mb-16">
-         <a href="https://github.com/wdcampbell3/Freshbase-SAAS-Kit/blob/main/README.md" target="_blank">
+         <a href="https://github.com/wdcampbell3/Freshbase-SAAS-Kit/blob/main/_START-HERE.md" target="_blank">
             <button class="btn btn-primary btn-lg px-10 shadow-[0_0_20px_rgba(66,161,250,0.5)] hover:shadow-[0_0_40px_rgba(66,161,250,0.7)] border-none text-white font-bold text-xl bg-linear-to-r from-primary to-cyan-400">
                Get Started
             </button>
@@ -220,11 +226,11 @@
   <div class="pb-24 px-7">
     <div class="max-w-4xl mx-auto text-center mb-16">
       <div
-        class="text-3xl md:text-5xl font-bold text-white mb-4"
+        class="text-3xl md:text-5xl font-bold text-base-content mb-4"
       >
         Everything you need. <span class="text-transparent bg-clip-text bg-linear-to-r from-primary to-cyan-300">Nothing you don't.</span>
       </div>
-      <p class="text-xl text-cyan-50/70">
+      <p class="text-xl text-base-content/70">
          Skip the pricey subscriptions like Lovable, Bolt, or Base64. Own your code.
       </p>
     </div>
@@ -233,9 +239,9 @@
       class="flex gap-6 max-w-[1200px] mx-auto place-content-center flex-wrap"
     >
       {#each features as feature}
-        <div class="card bg-base-100/80 backdrop-blur-md border border-white/10 w-[280px] min-h-[280px] flex-none hover:border-primary transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(66,161,250,0.2)]">
+        <div class="card bg-base-200 shadow-xl border border-base-content/5 w-[280px] min-h-[280px] flex-none hover:border-primary transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
           <div class="card-body items-center text-center p-8">
-            <div class="p-3 rounded-2xl bg-base-300 mb-4 text-primary">
+            <div class="p-3 rounded-2xl bg-base-100 mb-4 text-primary shadow-sm">
               <svg
                 width="40px"
                 height="40px"
@@ -248,10 +254,10 @@
                 {@html feature.svgContent.replace(/fill="#1C274C"/g, 'fill="currentColor"').replace(/stroke="#1C274C"/g, 'stroke="currentColor"')}
               </svg>
             </div>
-            <h2 class="card-title text-white mb-2">
+            <h2 class="card-title text-base-content mb-2">
               {feature.name}
             </h2>
-            <p class="text-sm text-cyan-50/70 leading-relaxed">
+            <p class="text-sm text-base-content/70 leading-relaxed">
               {feature.description}
             </p>
             <!-- Removed Docs Link as requested -->
