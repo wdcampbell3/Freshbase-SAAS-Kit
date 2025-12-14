@@ -58,7 +58,8 @@ You'll need a code editor. We highly recommend **[Antigravity](https://antigravi
 
 Before jumping in, check out the `docs/` folder. It's your roadmap to the codebase:
 
-- **`docs/roadmap.md`**: **(MUST READ)** The "Vibe Coder's Guide". A complete playbook for building and launching your app from scratch using AI.
+- **`docs/launch_guide.md`**: **(MUST READ)** The "Vibe Coder's Guide to Launching". A complete step-by-step playbook for building and launching your app from scratch using AI.
+- **`docs/roadmap.md`**: A living checklist tracking current features and future development goals.
 - **`docs/data_schema.md`**: Understand your database structure - very important for AI models as they need to know how to interact with your data without creating unnecessary or duplicate fields.
 - **`docs/function_map.md`**: Find key functions and API endpoints quickly. (Advanced)
 
