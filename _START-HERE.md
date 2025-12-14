@@ -54,14 +54,20 @@ For anything beyond basic tweaks it's good practice to reference the `_AI-CONTEX
 
 You'll need a code editor. We highly recommend **[Antigravity](https://antigravity.google/)** or **[Cursor](https://cursor.com)** for the best AI-assisted experience, but **[VS Code](https://code.visualstudio.com)** works great too if you're more technical!
 
-### 2. Understand the Documentation
+### 2. Understand the Documentation Ecosystem 🗺️
 
-Before jumping in, check out the `docs/` folder. It's your roadmap to the codebase:
+This kit comes with three key documents designed to work together:
 
-- **`docs/launch_guide.md`**: **(MUST READ)** The "Vibe Coder's Guide to Launching". A complete step-by-step playbook for building and launching your app from scratch using AI.
-- **`docs/roadmap.md`**: A living checklist tracking current features and future development goals.
-- **`docs/data_schema.md`**: Understand your database structure - very important for AI models as they need to know how to interact with your data without creating unnecessary or duplicate fields.
-- **`docs/function_map.md`**: Find key functions and API endpoints quickly. (Advanced)
+1.  **`_START-HERE.md`** (This File): Your **Technical Setup Guide**. Use this first to install tools, configure Firebase/Stripe, and get the app running.
+2.  **`docs/launch_guide.md`**: Your **Strategy & Strategy**. Read this for "vibe coding" best practices, AI prompt engineering, and a high-level overview of how to build features.
+3.  **`docs/roadmap.md`**: Your **Master Checklist**. Use this as a living document to track your progress from idea to launch. It breaks down the entire process into actionable boxes to check off.
+
+**Suggested Workflow:** 
+Complete the setup in this file -> Read the Strategy Guide -> Execute using the Roadmap.
+
+**Other Helper Docs:**
+- **`docs/data_schema.md`**: Reference for your database structure.
+- **`docs/function_map.md`**: Quick lookup for key functions and API endpoints.
 
 ### 3. Clone & Run
 

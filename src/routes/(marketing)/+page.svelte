@@ -208,8 +208,8 @@
       <p
         class="text-lg md:text-2xl text-base-content/90 max-w-2xl mx-auto mb-4 leading-relaxed font-normal drop-shadow-md"
       >
-        The custom-designed, low-code SaaS starter kit. Built for AI-forward
-        IDEs like
+        A custom-designed tech stack built for AI-forward
+        tools like
         <a
           href="https://antigravity.google"
           target="_blank"
@@ -220,15 +220,14 @@
           href="https://cursor.com/"
           target="_blank"
           class="text-base-content underline">Cursor</a
-        >, allowing you to launch web apps fast and for
-        <span class="text-base-content font-bold">FREE</span>.
+        > to launch quality web apps quickly.
       </p>
 
       <a
-        href="https://github.com/wdcampbell3/Freshbase-SAAS-Kit/blob/main/docs/roadmap.md"
+        href="https://github.com/wdcampbell3/Freshbase-SAAS-Kit/blob/main/docs/launch_guide.md"
         target="_blank"
         class="block text-primary font-bold hover:underline mb-10 text-lg"
-        >Follow our app-building checklist!</a
+        >Read our app-building guide!</a
       >
 
       <div class="flex justify-center mb-16">

@@ -1,105 +1,186 @@
 # The Vibe Coder's Guide to Launching 🚀
 
-Welcome! This guide is your playbook for building a real, profitable SaaS product using this starter kit and your AI assistant (like Antigravity or Cursor).
+> **Prerequisites**: Complete the setup steps in [`_START-HERE.md`](../_START-HERE.md) before using this guide.
 
-**Don't panic.** You don't need to be a coding wizard. You just need to have a vision ("the vibe") and know how to ask the AI for what you want.
-
----
-
-## Phase 1: The Setup (Don't Skip!)
-
-Before you build features, you need to sync your AI with the project.
-
-**Step 1.1: Load the Context**
-The most common mistake is the AI forgetting how the project works.
-*   **Action**: In your AI chat window, always start a new session by attaching or referencing `_AI-CONTEXT.md`.
-*   **Prompt**: *"Read `_AI-CONTEXT.md` to understand the project architecture. I want to start building."*
-
-**Step 1.2: Define Your App**
-Tell the AI what you are actually building so it can suggest relevant code.
-*   **Prompt**: *"I want to build a SaaS called [Name] that helps [Target Audience] do [Main Problem] by [Your Solution]. Keep this in mind for all future code."*
+This is your playbook for turning an idea into a launched SaaS product using AI-assisted coding ("vibe coding"). You don't need to be a coding expert—just bring your vision and learn how to guide your AI assistant effectively.
 
 ---
 
-## Phase 2: Make It Yours (Visuals)
+## 1. Generating Your Idea
 
-Let's get the "vibe" right before we touch complex logic.
+Before writing any code, get crystal clear on *what* you're building.
 
-**Step 2.1: The Theme Editor**
-You have a built-in design tool!
-*   **Action**: Run your app (`npm run dev`) and go to `http://localhost:5173/styles` in your browser.
-*   **Do**: Pick your Primary (Brand) color and a Font. Toggle Light/Dark mode to see what looks best.
-*   **Tip**: Click **"Save Project-Wide"** to instantly write these changes to your code.
+### Define Your "One-Liner"
+Summarize your app in a single sentence:
+> "I'm building a SaaS that helps **[target audience]** do **[core problem]** by **[your solution]**."
 
-**Step 2.2: The Landing Page**
-*   **Action**: The file is at `src/routes/(marketing)/+page.svelte`.
-*   **Prompt**: *"Update the landing page copy effectively. My product is [Description]. Change the Hero headline to be catchy, and update the 'Features' section to list these 3 benefits: [Benefit 1, Benefit 2, Benefit 3]."*
-
----
-
-## Phase 3: Building The "MVP" (Minimum Viable Product)
-
-This is where you build the features people pay for.
-
-**Step 3.1: Create a Navigation Link**
-You probably need a new page for your tool.
-*   **Prompt**: *"I need a new page for [Feature Name, e.g., 'Dashboard']. Create a new route at `/app/dashboard`. Make sure it is protected (users must be logged in). Add a link to it in the main Navbar."*
-
-**Step 3.2: User Data (The Database)**
-Your app needs to remember things. We use **Firebase** for this. It's like a giant spreadsheet in the cloud.
-*   **Prompt**: *"I need to save [Item Name, e.g., 'Projects'] for each user. Create a Firebase function to 'create' a new project with a 'title' and 'description'. Then, create a UI form on the Dashboard to let users submit this."*
-
-**Step 3.3: User Login**
-*   **Good News**: This is already built! Go to `/login` to see it. It works out of the box if you followed the Firebase Setup in `_START-HERE.md`.
+### Validate the Concept
+Use your AI assistant to pressure-test your idea:
+```
+Prompt: "I want to build a SaaS that helps freelance designers manage client feedback.
+Critically analyze this idea. What are potential weaknesses? Who are competitors?"
+```
 
 ---
 
-## Phase 4: Making Money (Optional) 💸
+## 2. Creating a PRD (Product Requirements Document)
 
-If you want to charge users, you need **Stripe**.
+A PRD is your "blueprint" that keeps you and your AI aligned.
 
-**Step 4.1: Setup Plans**
-*   **Action**: Go to Stripe.com, create a Product (e.g., "Pro Plan", $10/mo). Copy the "Price ID" (starts with `price_...`).
-*   **Action**: Open `src/routes/(marketing)/pricing/pricing_plans.ts` and paste that ID.
+### Generate a PRD
+```
+Prompt: "Act as a Senior Product Manager. Write a PRD for my app idea: [your one-liner].
+Include:
+- Target user persona
+- 3-5 core features for an MVP
+- A proposed Firestore data schema"
+```
 
-**Step 4.2: The Customer Portal**
-*   **Note**: The kit already handles the "Subscribe" button logic found on the `/pricing` page.
-*   **Prompt**: *"I've updated my pricing IDs. Verify that the checkout flow works for the 'Pro Plan'."*
-
----
-
-## Phase 5: The "Vibe Check" (Polish)
-
-Before you launch, you need to verify everything looks good on all devices.
-
-**Step 5.1: The Mobile Review**
-Don't just look at your big monitor!
-*   **Action**: In Chrome, right-click anywhere and select **Inspect**.
-*   **Action**: Click the tiny phone/tablet icon (top-left of the inspector panel) or press `Cmd+Shift+M`.
-*   **Task**: Click through every page. Does the menu look broken? Are buttons too small?
-*   **Fix It Prompt**: *"The navigation bar looks messy on mobile (iPhone SE view). Please collapse the links into a hamburger menu for screens smaller than 768px."*
-
-**Step 5.2: The "Audit"**
-Ask the AI to critique its own work.
-*   **Prompt**: *"Review `src/routes/app`. Are there any hardcoded API keys? Are there `console.log` statements I left in? Please clean them up."*
+### Why This Matters
+- AI assistants work best with **clear, documented requirements**.
+- You can reference this PRD in future prompts: *"Referring to the PRD, build the dashboard page."*
 
 ---
 
-## Phase 6: Launching 🚀
+## 3. Breaking Down Tasks for AI
 
-**Step 6.1: Deployment**
-*   **Action**: Read the **"Deploy to Netlify"** section in `_START-HERE.md`. It walks you through connecting your GitHub repo to the web.
-*   **Key**: You must add your Environment Variables (the keys in `.env`) to Netlify's settings page.
+AI performs best with small, focused instructions—not giant requests.
 
-**Step 6.2: Legal Stuff**
-*   **Prompt**: *"Generate a standard placeholder Privacy Policy for a SaaS app. Save it to `src/routes/legal/privacy/+page.svelte`."* (Consult a lawyer later!)
+| ❌ Bad Prompt | ✅ Good Prompt |
+|---------------|----------------|
+| "Build me a CRM." | "Create a 'Contacts' page that displays a list fetched from Firebase." |
+| "Make the whole dashboard." | "Build the 'Create Project' form component with title and description fields." |
+
+### Generate a Task List
+```
+Prompt: "Break down this PRD into step-by-step implementation tasks.
+Group them by: Setup, Core Features, UI Polish, and Advanced Features."
+```
+
+### Feeding Context to AI
+Always start new AI sessions by loading project context:
+```
+Prompt: "Read `_AI-CONTEXT.md` first. Then help me build [specific feature]."
+```
 
 ---
 
-## Cheat Sheet: "Vibe Coding" Best Practices
+## 4. Working with the Database (Firebase)
 
-1.  **Small Batches**: Don't say "Build my entire specific Startup."
-    *   *Bad*: "Build a CRM."
-    *   *Good*: "Create a 'Contacts' list page that fetches data from Firebase."
-2.  **Iterate**: It's okay to say "That looks ugly, make it pop more" or "Make the button bigger."
-3.  **Trust but Verify**: AI writes code fast, but sometimes breaks things. **Always** look at your localhost preview after the AI makes a change.
+Firebase/Firestore is your cloud database. Think of it as a collection of spreadsheets.
+
+### Key Concepts
+- **Collections**: Like folders (e.g., `users`, `projects`, `posts`)
+- **Documents**: Individual records with unique IDs
+- **Fields**: Data points within a document (e.g., `title`, `createdAt`)
+
+### Example Prompt
+```
+Prompt: "I need users to save 'Projects'. Each project has a title, description, and status.
+Create a Firestore helper function to add a new project, and build a simple form to submit it."
+```
+
+### Best Practice
+- Always tie user-created data to their `userId` for security
+- Reference `docs/data_schema.md` for the existing schema
+
+---
+
+## 5. Branding Your App
+
+Make the app *yours* before diving into features.
+
+### Use the Theme Editor
+1. Run `npm run dev`
+2. Visit `http://localhost:5173/styles`
+3. Pick your brand colors, toggle light/dark mode
+4. Click **"Save"** to write changes to `app.css`
+
+### Update the Landing Page
+The homepage is at `src/routes/(marketing)/+page.svelte`.
+```
+Prompt: "Update the landing page for my app. The headline should be [catchy headline].
+List these 3 benefits in the Features section: [Benefit 1], [Benefit 2], [Benefit 3]."
+```
+
+---
+
+## 6. Adding Advanced Features (Optional)
+
+These are already built into the kit—you just need to configure them.
+
+### User Authentication
+- **Already working** at `/login` if you completed Firebase setup
+- Supports Email/Password and Google Sign-In
+
+### Payments (Stripe)
+1. Create a Product in your [Stripe Dashboard](https://dashboard.stripe.com)
+2. Copy the `Price ID` (starts with `price_...`)
+3. Paste it into `src/routes/(marketing)/pricing/pricing_plans.ts`
+4. The `/pricing` page handles checkout automatically
+
+### Blog Engine
+- Blog posts live in `src/routes/(marketing)/blog/posts/`
+- Add new `.md` files to create posts
+- Great for SEO and content marketing
+
+---
+
+## 7. Troubleshooting & Auditing
+
+Before launching, do a "vibe check" on your code.
+
+### Mobile Review
+1. Open Chrome DevTools (`Cmd+Option+I` or `F12`)
+2. Click the device toolbar icon (or `Cmd+Shift+M`)
+3. Test every page on iPhone SE and iPad views
+
+```
+Fix Prompt: "The navbar is broken on mobile. Collapse it into a hamburger menu below 768px."
+```
+
+### Code Audit
+Ask the AI to review its own work:
+```
+Prompt: "Audit `src/routes/app/` for:
+1. Hardcoded secrets or API keys
+2. Leftover console.log statements
+3. Accessibility issues (missing alt text, labels)
+Please fix any issues found."
+```
+
+### Common Issues
+| Problem | Solution |
+|---------|----------|
+| "Page not found" after adding a route | Check file is named `+page.svelte` (not `.ts`) |
+| Firebase permission denied | Verify Firestore rules in Firebase Console |
+| Styles not updating | Clear browser cache or restart dev server |
+
+---
+
+## 8. Launching
+
+When you're ready to go live, follow the deployment steps in [`_START-HERE.md`](../_START-HERE.md#deploy-to-netlify).
+
+**Quick Checklist:**
+- [ ] Push code to GitHub
+- [ ] Connect repo to Netlify
+- [ ] Add all `.env` variables to Netlify settings
+- [ ] Set up a custom domain (optional)
+- [ ] Add Privacy Policy and Terms of Service pages
+
+---
+
+## Cheat Sheet: Vibe Coding Best Practices
+
+| Principle | Example |
+|-----------|---------|
+| **Context is King** | Always start with: *"Read `_AI-CONTEXT.md` first."* |
+| **Small Batches** | One feature at a time, not "build my whole app" |
+| **Iterate** | *"That looks good, but add a loading spinner."* |
+| **Trust but Verify** | Always check `localhost` after AI makes changes |
+| **Save Often** | Commit to Git frequently so you can roll back |
+
+---
+
+**You've got this!** Start small, iterate fast, and ship something real. 🎉

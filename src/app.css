@@ -78,7 +78,7 @@
   --border: 1px;
   --depth: 1;
   --noise: 0;
-  --main-link-color: inherit;
+  --main-link-color: var(--color-primary);
 }
 
 /*
