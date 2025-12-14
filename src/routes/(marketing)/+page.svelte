@@ -228,7 +228,7 @@
         href="https://github.com/wdcampbell3/Freshbase-SAAS-Kit/blob/main/docs/roadmap.md"
         target="_blank"
         class="block text-primary font-bold hover:underline mb-10 text-lg"
-        >Follow our app-building road map!</a
+        >Follow our app-building checklist!</a
       >
 
       <div class="flex justify-center mb-16">

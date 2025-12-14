@@ -10,6 +10,9 @@
   // Project default toggle state
   let projectDefaultIsLight = false
 
+  // Default Link color toggle
+  let defaultLinkIsPrimary = false
+
   // Color Palette Data with metadata
   const colorDefs = [
     {
@@ -114,8 +117,14 @@
     }
 
     applyTheme(isLight)
-    // isLoading = false; // Unused variable removed;
+    updateLinkToggleState()
   })
+
+  function updateLinkToggleState() {
+     // Check the current theme's link color setting
+     const linkColor = currentColors["--main-link-color"]
+     defaultLinkIsPrimary = linkColor && linkColor.includes("primary")
+  }
 
   function applyTheme(light: boolean) {
     const themeName = light ? themeLight : themeDark
@@ -135,12 +144,47 @@
     Object.entries(colorsToApply).forEach(([key, value]) => {
       document.documentElement.style.setProperty(key, value)
     })
+    
+    // Ensure the toggle reflects the new theme's state
+    updateLinkToggleState()
   }
 
   function toggleTheme() {
     isLight = !isLight
     localStorage.setItem("theme", isLight ? themeLight : themeDark)
     applyTheme(isLight)
+  }
+  
+  let linkSaveMessage = "" // Added linkSaveMessage state variable
+
+  async function toggleDefaultLinkColor() {
+    defaultLinkIsPrimary = !defaultLinkIsPrimary
+    const newVal = defaultLinkIsPrimary ? "var(--color-primary)" : "inherit"
+    
+    // Update both light and dark or just current? 
+    // Requirement implies "Default link color" is a setting used across the board?
+    // Usually theme settings like this are per-theme, but let's assume per-theme to follow the architecture.
+    // We update the CURRENT theme's setting.
+    
+    updateColor("--main-link-color", newVal)
+
+    // Auto-save logic
+    try {
+      await fetch("/api/theme/save", {
+        method: "POST",
+        body: JSON.stringify({
+          colors: { light: lightColors, dark: darkColors },
+          defaultTheme: projectDefaultIsLight ? "light" : "dark",
+        }),
+        headers: { "Content-Type": "application/json" },
+      })
+      linkSaveMessage = "Saved!"
+      setTimeout(() => (linkSaveMessage = ""), 2000)
+    } catch (e) {
+      console.error("Failed to save default link color:", e)
+      linkSaveMessage = "Error!"
+      setTimeout(() => (linkSaveMessage = ""), 2000)
+    }
   }
 
   // Update state when color picker changes
@@ -401,6 +445,7 @@
     >
       Typography
     </h2>
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
       <div class="space-y-6">
         <div
@@ -453,10 +498,27 @@
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
           eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
         </p>
-        <div class="pt-4">
+        <div class="pt-4 flex items-center flex-wrap gap-y-2">
           <a href="/styles" class="link link-primary">Primary Link</a>
           <span class="mx-2 opacity-30">|</span>
-          <a href="/styles" class="link">Default Link</a>
+          <a href="/styles" class="link mr-3">Default Link Color:</a>
+          <div class="join bg-base-200 p-1 rounded-lg border border-base-content/10 mr-3">
+            <button 
+              class="join-item btn btn-xs {defaultLinkIsPrimary ? 'btn-ghost opacity-50' : 'btn-white shadow-sm'}"
+              onclick={() => { if(defaultLinkIsPrimary) toggleDefaultLinkColor() }}
+            >
+              Text Color
+            </button>
+            <button 
+              class="join-item btn btn-xs {defaultLinkIsPrimary ? 'btn-primary' : 'btn-ghost opacity-50'}"
+              onclick={() => { if(!defaultLinkIsPrimary) toggleDefaultLinkColor() }}
+            >
+              Primary Color
+            </button>
+          </div>
+          {#if linkSaveMessage}
+            <span class="text-xs text-success font-medium animate-pulse">{linkSaveMessage}</span>
+          {/if}
         </div>
       </div>
     </div>
