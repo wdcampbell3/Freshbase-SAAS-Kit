@@ -114,7 +114,7 @@ _For simple apps and prototyping, you don't likely need the Firebase backend or 
 
 ---
 
-## Activating the Advanced Features (Pick & Choose Accordinly)
+## Activating the Advanced Features (Pick & Choose Accordingly)
 
 ### 1. Set up Firebase (Your Optional Backend)
 

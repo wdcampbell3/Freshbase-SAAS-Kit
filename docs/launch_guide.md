@@ -1,6 +1,6 @@
 # The Vibe Coder's Guide to Launching 🚀
 
-> **Prerequisites**: Complete the setup steps in [`_START-HERE.md`](../_START-HERE.md) before using this guide.
+> **Prerequisites**: This guide compliments the setup steps in [`_START-HERE.md`](../_START-HERE.md) when you're ready to officially start your project.
 
 This is your playbook for turning an idea into a launched SaaS product using AI-assisted coding ("vibe coding"). You don't need to be a coding expert—just bring your vision and learn how to guide your AI assistant effectively.
 
