@@ -64,11 +64,11 @@
   <li>
     <em>"Add a dashboard page that shows the user's recent activity"</em>
   </li>
-  <li><em>"Create a settings page where users can update their profile"</em></li>
   <li>
-    <em
-      >"Build a contact form that sends submissions to my email"</em
-    >
+    <em>"Create a settings page where users can update their profile"</em>
+  </li>
+  <li>
+    <em>"Build a contact form that sends submissions to my email"</em>
   </li>
 </ul>
 
@@ -87,8 +87,8 @@
 </p>
 
 <p>
-  Don't try to plan everything upfront. Build a little, test a little, improve
-  a little. This tight feedback loop is what makes vibe coding so effective.
+  Don't try to plan everything upfront. Build a little, test a little, improve a
+  little. This tight feedback loop is what makes vibe coding so effective.
 </p>
 
 <h3>5. Ship Before You're Ready</h3>

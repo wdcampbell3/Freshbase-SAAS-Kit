@@ -15,8 +15,10 @@ export type BlogPost = {
 // Create a page in the "(posts)" directory for each entry
 const blogPosts: BlogPost[] = [
   {
-    title: "From Idea to Launch: The Vibe Coder's Guide to Shipping Your First App",
-    description: "Stop overthinking. Start shipping. A practical 5-step guide for aspiring app builders who want to turn their ideas into reality.",
+    title:
+      "From Idea to Launch: The Vibe Coder's Guide to Shipping Your First App",
+    description:
+      "Stop overthinking. Start shipping. A practical 5-step guide for aspiring app builders who want to turn their ideas into reality.",
     link: "/blog/from_idea_to_launch_vibe_coding_guide",
     date: "2024-12-16",
   },

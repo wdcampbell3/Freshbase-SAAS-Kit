@@ -8,16 +8,16 @@
 </svelte:head>
 
 <div class="py-8 lg:py-12 px-6 max-w-lg mx-auto">
-  <div
-    class="text-3xl lg:text-5xl font-medium text-primary text-center"
-  >
+  <div class="text-3xl lg:text-5xl font-medium text-primary text-center">
     <div
       class="leading-relaxed font-bold bg-clip-text text-transparent bg-linear-to-r from-primary to-accent"
     >
       {blogInfo.name}
     </div>
   </div>
-  <div class="text-lg text-center">Some helpful content to get you started!</div>
+  <div class="text-lg text-center">
+    Some helpful content to get you started!
+  </div>
 
   {#each sortedBlogPosts as post}
     <a href={post.link}>

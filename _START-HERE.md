@@ -102,6 +102,7 @@ _Important for branding and personalization!_
 _For simple apps and prototyping, you don't likely need the Firebase backend or other advanced features yet._
 
 **If you're just:**
+
 - Playing with UI ideas and layouts
 - Building simple tools or calculators
 - Testing out vibe coding with AI
@@ -159,7 +160,6 @@ _Time to go live!_
 3. Select your repo. NOTE: In "Build settings", the defaults (Base directory: `/`, Build command: `npm run build`, Publish directory: `build` or `public`) usually work, but SvelteKit's adapter-auto handles this.
 4. **Crucial**: Add your final environment variables in Netlify (Site configuration → Environment variables). NOTE: you can copy the values from your `.env.local` file and paste them into Netlify. Just remove any comments, just keep the key-value pairs. ALSO, after importing make sure to that the "Secret values" box is checked for all PRIVATE variables.
 
-
 ---
 
 ## Next Steps
@@ -168,6 +168,5 @@ Now that you're set up, it's time to build!
 
 - **Strategy**: Read **[`docs/launch_guide.md`](docs/launch_guide.md)** next. It's essential for first-time builders to understand how to "vibe code" effectively with AI.
 - **Execution**: Use **[`docs/roadmap.md`](docs/roadmap.md)** as your interactive checklist. Mark items off as you go to track your journey from idea to launch!
-
 
 Happy building! 🚀
