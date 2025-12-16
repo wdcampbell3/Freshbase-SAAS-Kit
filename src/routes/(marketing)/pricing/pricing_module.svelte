@@ -24,9 +24,9 @@
 >
   {#each pricingPlans as plan}
     <div
-      class="flex-none card card-bordered {plan.id === highlightedPlanId
-        ? 'border-primary'
-        : 'border-base-content/10'} bg-base-200 shadow-xl flex-1 grow min-w-[260px] max-w-[310px] p-6 hover:shadow-2xl transition-all"
+      class="flex-none card {plan.id === highlightedPlanId
+        ? 'border-primary border-2'
+        : ''} shadow-xl flex-1 grow min-w-[260px] max-w-[310px] p-6 hover:shadow-2xl transition-all"
     >
       <div class="flex flex-col h-full">
         <div class="text-xl font-bold text-base-content">{plan.name}</div>

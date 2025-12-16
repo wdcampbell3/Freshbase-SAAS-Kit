@@ -1,6 +1,6 @@
 export const blogInfo = {
-  name: "SaaS Starter Blog",
-  description: "A sample blog",
+  name: "Freshbase Blog",
+  description: "Tips and guides for aspiring app builders and vibe coders",
 }
 
 export type BlogPost = {
@@ -15,22 +15,10 @@ export type BlogPost = {
 // Create a page in the "(posts)" directory for each entry
 const blogPosts: BlogPost[] = [
   {
-    title: "How we built a beautiful 41kb SaaS website with this template",
-    description: "How to use this template you to bootstrap your own site.",
-    link: "/blog/how_we_built_our_41kb_saas_website",
-    date: "2024-03-10",
-  },
-  {
-    title: "Example Blog Post 2",
-    description: "Even more example content!",
-    link: "/blog/awesome_post",
-    date: "2022-9-23",
-  },
-  {
-    title: "Example Blog Post",
-    description: "A sample blog post, showing our blog engine",
-    link: "/blog/example_blog_post",
-    date: "2023-03-13",
+    title: "From Idea to Launch: The Vibe Coder's Guide to Shipping Your First App",
+    description: "Stop overthinking. Start shipping. A practical 5-step guide for aspiring app builders who want to turn their ideas into reality.",
+    link: "/blog/from_idea_to_launch_vibe_coding_guide",
+    date: "2024-12-16",
   },
 ]
 
