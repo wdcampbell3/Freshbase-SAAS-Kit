@@ -217,4 +217,8 @@ Solution: Check console for Cloudinary errors or verify connection in `.env.loca
 
 —
 
+_Thanks to the [CMSaasStarter](https://github.com/scosman/CMSaasStarter/blob/main/README.md) team for their original inspiration for this kit._
+
+–
+
 **Happy building! 🚀**
