@@ -55,6 +55,13 @@ export const actions = {
       })
     }
 
+    if (!adminAuth) {
+      return fail(500, {
+        errorMessage: "Firebase Admin not initialized. Please configure Firebase to use this feature.",
+        email,
+      })
+    }
+
     try {
       await adminAuth.updateUser(user.id, { email })
     } catch (error) {
@@ -112,6 +119,14 @@ export const actions = {
       })
     }
 
+    if (!adminAuth) {
+      return fail(500, {
+        errorMessage: "Firebase Admin not initialized. Please configure Firebase to use this feature.",
+        newPassword1,
+        newPassword2,
+      })
+    }
+
     try {
       await adminAuth.updateUser(user.id, { password: newPassword1 })
     } catch (error) {
@@ -133,6 +148,12 @@ export const actions = {
     const { user } = await locals.getSession()
     if (!user) {
       redirect(303, "/login")
+    }
+
+    if (!adminAuth) {
+      return fail(500, {
+        errorMessage: "Firebase Admin not initialized. Please configure Firebase to use this feature.",
+      })
     }
 
     try {

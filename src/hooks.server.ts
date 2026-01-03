@@ -1,4 +1,7 @@
-import { adminAuth } from "$lib/firebase-admin.server"
+import {
+  adminAuth,
+  isFirebaseAdminInitialized,
+} from "$lib/firebase-admin.server"
 import { decodedTokenToAppUser, type AppUser } from "$lib/firestore.server"
 // import { redirect } from "@sveltejs/kit" // Removed unused import
 import type { Handle } from "@sveltejs/kit"
@@ -15,6 +18,11 @@ export const firebase: Handle = async ({ event, resolve }) => {
     user: AppUser | null
     decodedToken: DecodedIdToken | null
   }> => {
+    // If Firebase Admin is not initialized, return null session
+    if (!isFirebaseAdminInitialized() || !adminAuth) {
+      return { user: null, decodedToken: null }
+    }
+
     if (!sessionCookie) {
       return { user: null, decodedToken: null }
     }
@@ -35,6 +43,14 @@ export const firebase: Handle = async ({ event, resolve }) => {
 
   // Helper to set session cookie
   event.locals.setSessionCookie = async (idToken: string) => {
+    // If Firebase Admin is not initialized, log warning and return
+    if (!isFirebaseAdminInitialized() || !adminAuth) {
+      console.warn(
+        "⚠️ Cannot create session cookie: Firebase Admin SDK not initialized",
+      )
+      return
+    }
+
     // Create session cookie that expires in 5 days
     const expiresIn = 60 * 60 * 24 * 5 * 1000 // 5 days
     const sessionCookie = await adminAuth.createSessionCookie(idToken, {

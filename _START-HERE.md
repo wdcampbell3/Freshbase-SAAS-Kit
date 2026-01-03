@@ -112,7 +112,13 @@ _For more basic apps and prototyping, you may not need the database or other adv
 - Testing out the basics of vibe coding with AI
 - Creating static content, websites or portfolios
 
-**Does that sounds like you? If so, you can skip steps 6-9 entirely!** Jump straight to **Next Steps** at the bottom of this file and start building. The dev server works fine without a database, payment system, or image storage configured. You'll just see some console errors on pages that try to access those services, but you can ignore them or work on other pages.
+**Does that sounds like you? If so, you can skip steps 6-9 entirely!** Jump straight to **Next Steps** at the bottom of this file and start building.
+
+**The app gracefully handles missing Firebase credentials:**
+- Pages that don't require auth/database work perfectly without Firebase configured
+- If Firebase credentials are missing or invalid, you'll see a helpful warning in the console explaining the issue
+- The app won't crash—it continues running with auth/database features disabled
+- Protected routes (like `/account`) will simply redirect to login, which is expected behavior
 
 **Come back to this guide later** when you're ready to add user authentication, payments, or data persistence. The backend setup will be waiting for you!
 
@@ -205,6 +211,9 @@ Now that you're set up, it's time to build!
 
 Problem: "Page not found" after adding a route
 Solution: Check file is named `+page.svelte` (not `.ts`)
+
+Problem: Firebase initialization warning on startup
+Solution: This is expected if you haven't configured Firebase yet (see Step 6 above). The app will continue running with auth/database features disabled. To fix: add valid Firebase credentials to `.env.local` and restart the dev server.
 
 Problem: Firebase permission denied
 Solution: Verify Firestore rules in Firebase Console match your query
