@@ -9,21 +9,21 @@
 
 @plugin "daisyui/theme" {
   name: "saasstartertheme";
-  default: false;
+  default: true;
   prefersdark: true;
   color-scheme: dark;
 
-  --color-primary: #066ab1;
+  --color-primary: #2386d1;
   --color-primary-content: #ffffff;
-  --color-secondary: #a6a6a6;
+  --color-secondary: #646d82;
   --color-secondary-content: #ffffff;
-  --color-accent: #4cdaf6;
+  --color-accent: #88b5d8;
   --color-accent-content: #ffffff;
-  --color-neutral: #0a0a1f;
+  --color-neutral: #000000;
   --color-neutral-content: #fefbf6;
-  --color-base-100: #050510;
-  --color-base-200: #242447;
-  --color-base-300: #196194;
+  --color-base-100: #0c1627;
+  --color-base-200: #263a50;
+  --color-base-300: #36516d;
   --color-base-content: #ffffff;
   --color-info: #01b3cb;
   --color-info-content: #ffffff;
@@ -46,22 +46,22 @@
 
 @plugin "daisyui/theme" {
   name: "saasstartertheme-light";
-  default: true;
+  default: false;
   prefersdark: false;
   color-scheme: light;
 
-  --color-primary: #066ab1;
+  --color-primary: #2386d1;
   --color-primary-content: #ffffff;
   --color-secondary: #cfcfcf;
   --color-secondary-content: #000000;
-  --color-accent: #4cdaf6;
+  --color-accent: #81bce9;
   --color-accent-content: #ffffff;
-  --color-neutral: #0a0a1f;
+  --color-neutral: #333357;
   --color-neutral-content: #ffffff;
   --color-base-100: #f8f9fa;
   --color-base-200: #ffffff;
-  --color-base-300: #96bee9;
-  --color-base-content: #1f2937;
+  --color-base-300: #cee6f8;
+  --color-base-content: #203656;
   --color-info: #01b3cb;
   --color-info-content: #ffffff;
   --color-success: #00d181;
@@ -91,6 +91,11 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+  html,
+  body {
+    background-color: var(--color-base-100);
+  }
+
   *,
   ::after,
   ::before,
@@ -113,20 +118,28 @@
 }
 
 .card:not(.card-bordered) {
-  border: 1px solid
+  border: 0.5px solid
     color-mix(in srgb, var(--color-base-content), transparent 90%);
 }
 
+.card:not(.card-bordered):hover {
+  border: 0.5px solid var(--color-accent);
+}
+
 .input:not(.input-ghost):hover,
-.input:not(.input-ghost):focus-within,
 .select:not(.select-ghost):hover,
-.select:not(.select-ghost):focus-within,
 .textarea:not(.textarea-ghost):hover,
-.textarea:not(.textarea-ghost):focus-within,
-.file-input:not(.file-input-ghost):hover,
-.file-input:not(.file-input-ghost):focus-within {
+.file-input:not(.file-input-ghost):hover {
   border-color: var(--color-base-300);
   outline-color: var(--color-base-300);
+}
+
+.input:not(.input-ghost):focus-within,
+.select:not(.select-ghost):focus-within,
+.textarea:not(.textarea-ghost):focus-within,
+.file-input:not(.file-input-ghost):focus-within {
+  border-color: var(--color-accent);
+  outline-color: var(--color-accent);
 }
 
 .file-input::file-selector-button {

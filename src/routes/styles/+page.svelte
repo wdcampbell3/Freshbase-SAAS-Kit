@@ -28,7 +28,7 @@
     {
       key: "--color-accent",
       label: "Accent",
-      description: "Highlights, Focus Rings",
+      description: "Active Borders, Focus Rings, Highlights",
     },
     {
       key: "--color-neutral",
@@ -54,7 +54,7 @@
     {
       key: "--color-base-300",
       label: "Base 300",
-      description: "Hover States, Borders",
+      description: "Hover States",
     },
 
     { key: "--color-info", label: "Info", description: "Alerts, Badges" },
@@ -324,6 +324,10 @@
 
 <svelte:head>
   <title>Styles & Examples - Freshbase SaaS Kit</title>
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
 </svelte:head>
 
 <div class="container mx-auto px-10 pb-10 space-y-24 relative">
@@ -567,7 +571,7 @@
           <!-- Details -->
           <div class="flex flex-col">
             <span class="font-bold text-lg">{color.label}</span>
-            <span class="text-xs opacity-60 uppercase font-semibold"
+            <span class="text-xs opacity-60 capitalize"
               >{color.description}</span
             >
           </div>
@@ -646,7 +650,48 @@
         </div>
       </div>
     </section>
+  </div>
 
+  <!-- Iconography -->
+  <section>
+    <h2
+      class="text-xl font-bold border-b border-base-content/10 pb-4 mb-8 uppercase tracking-wider opacity-70"
+    >
+      Iconography
+    </h2>
+    <p class="text-sm opacity-70 mb-6">
+      Popular Google Material Icons for use throughout the application.
+    </p>
+    <div
+      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4"
+    >
+      {#each [{ name: "home", label: "Home" }, { name: "search", label: "Search" }, { name: "settings", label: "Settings" }, { name: "account_circle", label: "Account" }, { name: "favorite", label: "Favorite" }, { name: "shopping_cart", label: "Cart" }, { name: "menu", label: "Menu" }, { name: "close", label: "Close" }, { name: "add", label: "Add" }, { name: "delete", label: "Delete" }, { name: "edit", label: "Edit" }, { name: "save", label: "Save" }, { name: "download", label: "Download" }, { name: "upload", label: "Upload" }, { name: "email", label: "Email" }, { name: "phone", label: "Phone" }, { name: "notifications", label: "Notifications" }, { name: "lock", label: "Lock" }, { name: "visibility", label: "Visibility" }, { name: "visibility_off", label: "Hide" }, { name: "check", label: "Check" }, { name: "cancel", label: "Cancel" }, { name: "arrow_back", label: "Back" }, { name: "arrow_forward", label: "Forward" }, { name: "refresh", label: "Refresh" }, { name: "more_vert", label: "More" }, { name: "share", label: "Share" }, { name: "print", label: "Print" }, { name: "filter_list", label: "Filter" }, { name: "sort", label: "Sort" }, { name: "info", label: "Info" }, { name: "warning", label: "Warning" }, { name: "error", label: "Error" }, { name: "check_circle", label: "Success" }, { name: "help", label: "Help" }, { name: "star", label: "Star" }, { name: "star_border", label: "Star Outline" }, { name: "thumb_up", label: "Thumb Up" }, { name: "thumb_down", label: "Thumb Down" }, { name: "calendar_today", label: "Calendar" }, { name: "schedule", label: "Schedule" }, { name: "location_on", label: "Location" }, { name: "link", label: "Link" }, { name: "file_download", label: "File Download" }, { name: "file_upload", label: "File Upload" }, { name: "folder", label: "Folder" }, { name: "image", label: "Image" }, { name: "video_library", label: "Video" }] as icon}
+        <button
+          type="button"
+          class="flex flex-col items-center gap-1.5 p-3 rounded-lg border border-base-content/10 hover:border-accent transition-colors bg-base-200 cursor-pointer active:scale-95 group"
+          onclick={async () => {
+            const text = `Use the ${icon.name} Google Material Icon.`
+            try {
+              await navigator.clipboard.writeText(text)
+              // Visual feedback - you could add a toast notification here if desired
+            } catch (err) {
+              console.error("Failed to copy:", err)
+            }
+          }}
+        >
+          <span
+            class="material-icons text-2xl text-base-content group-hover:text-primary group-active:text-accent transition-colors"
+            >{icon.name}</span
+          >
+          <span class="text-xs text-center text-base-content/70 font-mono"
+            >{icon.label}</span
+          >
+        </button>
+      {/each}
+    </div>
+  </section>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
     <!-- Inputs -->
     <section>
       <h2

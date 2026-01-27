@@ -82,7 +82,7 @@ _Taking the first steps toward vibe coding_
 
 1. Create a new folder for your project.
 2. Open it in your code editor of choice.
-3. Ask your AI to "Clone the repo from https://github.com/wdcampbell3/Freshbase-SAAS-Kit directly into this current folder". *NOTE: If asked you can replace all contents with the new files.*
+3. Ask your AI to "Clone the repo from https://github.com/wdcampbell3/Freshbase-SAAS-Kit directly into this current folder". _NOTE: If asked you can replace all contents with the new files._
 4. Let it install any dependencies or other things it requests.
 5. Ask it to "Run the dev server" AKA `npm run dev`.
 6. Open [`localhost:5173`](http://localhost:5173) to see your new app preview!
@@ -115,6 +115,7 @@ _For more basic apps and prototyping, you may not need the database or other adv
 **Does that sounds like you? If so, you can skip steps 6-9 entirely!** Jump straight to **Next Steps** at the bottom of this file and start building.
 
 **The app gracefully handles missing Firebase credentials:**
+
 - Pages that don't require auth/database work perfectly without Firebase configured
 - If Firebase credentials are missing or invalid, you'll see a helpful warning in the console explaining the issue
 - The app won't crash—it continues running with auth/database features disabled
@@ -131,21 +132,20 @@ _For more basic apps and prototyping, you may not need the database or other adv
 _Required for data persistence across browsers & computers, user auth, billing, etc._
 
 1. Go to the [Firebase Console](https://console.firebase.google.com) and create a project.
-3. **Enable Database**: Go to Build → Firestore Database. Create New Database → Standard edition → Default Database ID & location → Start in *Production mode*.
-2. **Enable Auth**: Go to Build → Authentication → Get started → Choose "Email/Password" and enable it → You can also enable "Google" as a new provider (Optional, requires additional advanced steps)
+2. **Enable Database**: Go to Build → Firestore Database. Create New Database → Standard edition → Default Database ID & location → Start in _Production mode_.
+3. **Enable Auth**: Go to Build → Authentication → Get started → Choose "Email/Password" and enable it → You can also enable "Google" as a new provider (Optional, requires additional advanced steps)
 4. **Get Credentials**: Click gear icon in Project Overview:
-   - *Client*: Project Settings → General → Add App (Click "Web" icon) → Name the app whatever you like → Do NOT select Firebase hosting → Register app → Continue to Console → Go back to your coding app → Copy/paste in the following:
+   - _Client_: Project Settings → General → Add App (Click "Web" icon) → Name the app whatever you like → Do NOT select Firebase hosting → Register app → Continue to Console → Go back to your coding app → Copy/paste in the following:
    ```
    Rename `.env.example` to `.env.local` and fill in the necessary Firebase values from this information:
    [THEN PASTE IN ENTIRE BLOCK OF CONFIGURATION TEXT HERE]
    ```
-   - *Server*: Project Settings → Service Accounts → "Generate new private key" → Generate key → Open the downloaded text file → Go back to your coding app → Copy/paste in the following:
+   - _Server_: Project Settings → Service Accounts → "Generate new private key" → Generate key → Open the downloaded text file → Go back to your coding app → Copy/paste in the following:
    ```
    Fill in the necessary Firebase values in .env.local from this information:
    [THEN PASTE IN ENTIRE BLOCK OF TEXT FROM DONWLOADED FILE]
    ```
-5. **Test Connection**: Type "Test Firebase connection" → The app will attempt to make the connection. *NOTE: If you have not enabled authentication then you will get an error, but this will not prevent you from building. You can always return to Firebase and enable the authorization later if you need it.* 
-
+5. **Test Connection**: Type "Test Firebase connection" → The app will attempt to make the connection. _NOTE: If you have not enabled authentication then you will get an error, but this will not prevent you from building. You can always return to Firebase and enable the authorization later if you need it._
 
 —
 
@@ -177,7 +177,7 @@ _Required for uploading & optimizing user uploads and marketing images._
 
 1. Create a free account at [Cloudinary](https://cloudinary.com).
 2. Go to API Keys and click "Generate new API Key" and update the name to reflect your app's name.
-3. Get your *Cloud Name* (top of page), *API Key*, and *API Secret* from the dashboard.
+3. Get your _Cloud Name_ (top of page), _API Key_, and _API Secret_ from the dashboard.
 4. Copy/paste these values over to the `.env.local` environment variables file.
 5. Test the connection by typing "Test Cloudinary connection"
 
@@ -189,11 +189,11 @@ _Ready to make money?_
 
 1. Create a free account at [Stripe](https://stripe.com).
 2. Click the gear icon in the nav bar → Developers → Manage API keys → Create restricted key → Providing this key to another website → Name it and enter the website URL you intend to use it on.
-2. Copy the *Secret API Key* and add it to `.env.local`. At this point you can type "Test my Stripe connection" to see if you've done it correctly.
-3. Create a Product in your [Stripe Dashboard](https://dashboard.stripe.com)
-4. Copy the `Price ID` (starts with `price_...`)
-5. Update `src/routes/(marketing)/pricing/pricing_plans.ts` with your new Product IDs.
-6. The `/pricing` page handles checkout automatically
+3. Copy the _Secret API Key_ and add it to `.env.local`. At this point you can type "Test my Stripe connection" to see if you've done it correctly.
+4. Create a Product in your [Stripe Dashboard](https://dashboard.stripe.com)
+5. Copy the `Price ID` (starts with `price_...`)
+6. Update `src/routes/(marketing)/pricing/pricing_plans.ts` with your new Product IDs.
+7. The `/pricing` page handles checkout automatically
 
 —
 
@@ -223,24 +223,25 @@ If you want to track visitors and user behavior:
 _Time to go live!_
 
 1. At this point it's a good idea to make sure that no secret information will be visible once published. Ask the AI: "I'm going to push my code to Github. Please double check the security of my project to make sure nothing sensitive will be visible on Github" and accept any fixes it might have.
-2. Create A GitHub account if you don't already have one and create a new repo → New → name it to reflect your app  → Keep default settings → Create repository → Copy repository URL → Ask the AI: "Connect to my github and push all of my code to this repo: [INSERT NEW REPO URL]" (IMPORTANT!!)
+2. Create A GitHub account if you don't already have one and create a new repo → New → name it to reflect your app → Keep default settings → Create repository → Copy repository URL → Ask the AI: "Connect to my github and push all of my code to this repo: [INSERT NEW REPO URL]" (IMPORTANT!!)
 3. Log in to [Netlify](https://www.netlify.com) with your GitHub login for the easiest set up.
 4. Click "Add new project" → "Import an existing project" → "GitHub"
-5. Select your repo → Give it a name to reflect your app. _NOTE: In "Build settings", the defaults usually work (Base directory: `/`, Build command: `npm run build`, Publish directory: `build` or `public`). SvelteKit's adapter-auto handles this._ → Click "Deploy" 
-6. **Crucial**: Add your final local environment variables to Netlify: Project configuration → Environment variables → Add a variable → Import from a .env file → Copy the values from your `.env.local` file and paste them into Netlify. Just remove any blank lines and # comments. *Only keep the key-value pairs.* → Import variables.
-- IMPORTANT: After importing make sure to go back and for all PRIVATE variables click arrow → Options → Check the "Contains secret values" box. *You will see a lock next to the item in the list if you've done it correctly.*
+5. Select your repo → Give it a name to reflect your app. _NOTE: In "Build settings", the defaults usually work (Base directory: `/`, Build command: `npm run build`, Publish directory: `build` or `public`). SvelteKit's adapter-auto handles this._ → Click "Deploy"
+6. **Crucial**: Add your final local environment variables to Netlify: Project configuration → Environment variables → Add a variable → Import from a .env file → Copy the values from your `.env.local` file and paste them into Netlify. Just remove any blank lines and # comments. _Only keep the key-value pairs._ → Import variables.
+
+- IMPORTANT: After importing make sure to go back and for all PRIVATE variables click arrow → Options → Check the "Contains secret values" box. _You will see a lock next to the item in the list if you've done it correctly._
 - NOTE: If you add any more local environmental variables in the future you will need to come back here to add them here too.
-7. **Test Deployment**: Go to Deploys → Trigger deploys → Deploy project. *If it works you should see an "Open production deploy" button. Click it... HUZZAH!*
+
+7. **Test Deployment**: Go to Deploys → Trigger deploys → Deploy project. _If it works you should see an "Open production deploy" button. Click it... HUZZAH!_
 
 ### 8. Connect your domain
 
 _Make it OFFICIAL!_
 
-1. In your Netlify project go to Domain management. Click "Add a domain". 
-2. Go through the domain verification process. This usually involves adding a TXT record in the DNS settings at your domain registrar or hosting. 
+1. In your Netlify project go to Domain management. Click "Add a domain".
+2. Go through the domain verification process. This usually involves adding a TXT record in the DNS settings at your domain registrar or hosting.
 3. Create the CNAME domain record in the DNS settings at your domain registrar or hosting that points to your Netlify project URL: my-project.netlify.app
 4. Wait a while until the DNS propagates and your site will soon be live!
-
 
 —
 
