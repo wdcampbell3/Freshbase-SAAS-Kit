@@ -147,8 +147,9 @@
   border-color: var(--color-base-300);
 }
 
-.btn-outline {
-  border-width: 2px !important;
+.btn-outline,
+.badge-outline {
+  border-width: 1px !important;
 }
 
 a:not(.btn):not(.link-primary):not(.badge):not(.tab) {

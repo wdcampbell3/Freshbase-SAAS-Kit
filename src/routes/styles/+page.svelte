@@ -860,7 +860,7 @@
           <div class="badge badge-primary badge-lg text-white">Primary</div>
           <div class="badge badge-secondary badge-lg text-white">Secondary</div>
           <div class="badge badge-accent badge-lg">Accent</div>
-          <div class="badge badge-outline badge-lg border-2">Outline</div>
+          <div class="badge badge-outline badge-lg">Outline</div>
           <div class="badge badge-ghost badge-lg">Ghost</div>
         </div>
 
