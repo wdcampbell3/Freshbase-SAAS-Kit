@@ -42,6 +42,7 @@
   --depth: 1;
   --noise: 0;
   --main-link-color: inherit;
+  --btn-primary-bg-image: none;
 }
 
 @plugin "daisyui/theme" {
@@ -79,6 +80,13 @@
   --depth: 1;
   --noise: 0;
   --main-link-color: inherit;
+  --btn-primary-bg-image: none;
+}
+
+/* Primary Button Gradient Support */
+.btn-primary:not(.btn-outline):not(.btn-ghost):not(.btn-link):not(:disabled) {
+  background-image: var(--btn-primary-bg-image);
+  border: none;
 }
 
 /*

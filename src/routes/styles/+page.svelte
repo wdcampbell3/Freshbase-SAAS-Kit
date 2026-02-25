@@ -13,6 +13,9 @@
   // Default Link color toggle
   let defaultLinkIsPrimary = false
 
+  // Primary Button Gradient toggle
+  let primaryIsGradient = false
+
   // Color Palette Data with metadata
   const colorDefs = [
     {
@@ -119,6 +122,7 @@
     applyTheme(isLight)
     // Pass colors directly since reactive currentColors hasn't updated yet
     updateLinkToggleState(isLight ? lightColors : darkColors)
+    updatePrimaryGradientState(isLight ? lightColors : darkColors)
   })
 
   function updateLinkToggleState(colors?: Record<string, string>) {
@@ -126,6 +130,13 @@
     const colorsToCheck = colors ?? currentColors
     const linkColor = colorsToCheck["--main-link-color"]
     defaultLinkIsPrimary = !!linkColor && linkColor.includes("primary")
+  }
+
+  function updatePrimaryGradientState(colors?: Record<string, string>) {
+    const colorsToCheck = colors ?? currentColors
+    const bgImage = colorsToCheck["--btn-primary-bg-image"]
+    // Check if the current value is a gradient
+    primaryIsGradient = !!bgImage && bgImage.includes("linear-gradient")
   }
 
   function applyTheme(light: boolean) {
@@ -149,6 +160,7 @@
 
     // Ensure the toggle reflects the new theme's state
     updateLinkToggleState()
+    updatePrimaryGradientState()
   }
 
   function toggleTheme() {
@@ -158,6 +170,39 @@
   }
 
   let linkSaveMessage = "" // Added linkSaveMessage state variable
+
+  async function togglePrimaryGradient() {
+    primaryIsGradient = !primaryIsGradient
+    const gradVal = primaryIsGradient
+      ? "linear-gradient(to bottom right, var(--color-primary), var(--color-accent))"
+      : "none"
+
+    // Update styles immediately for preview
+    document.documentElement.style.setProperty("--btn-primary-bg-image", gradVal)
+
+    // Update your local color state objects (adjust variable names as needed)
+    lightColors["--btn-primary-bg-image"] = gradVal
+    darkColors["--btn-primary-bg-image"] = gradVal
+
+    // Trigger reactivity
+    lightColors = lightColors
+    darkColors = darkColors
+
+    // Persist changes (example API call)
+    try {
+      await fetch("/api/theme/save", {
+        method: "POST",
+        body: JSON.stringify({
+          colors: { light: lightColors, dark: darkColors },
+          defaultTheme: projectDefaultIsLight ? "light" : "dark",
+        }),
+        headers: { "Content-Type": "application/json" },
+      })
+      // Optional: Show save confirmation
+    } catch (e) {
+      console.error("Failed to save primary gradient:", e)
+    }
+  }
 
   async function toggleDefaultLinkColor() {
     defaultLinkIsPrimary = !defaultLinkIsPrimary
@@ -603,6 +648,17 @@
         Interactive
       </h2>
       <div class="space-y-8">
+        <!-- Primary Button Gradient Toggle -->
+        <div class="flex items-center gap-4 bg-base-200 p-4 rounded-lg border border-base-content/10 w-fit">
+          <span class="text-sm font-bold opacity-70">Primary Button Gradient</span>
+          <input
+            type="checkbox"
+            class="toggle toggle-primary"
+            checked={primaryIsGradient}
+            onchange={togglePrimaryGradient}
+          />
+        </div>
+
         <div class="space-y-2">
           <p class="text-sm font-bold opacity-50 mb-2">Variants</p>
           <div class="flex flex-wrap gap-3">

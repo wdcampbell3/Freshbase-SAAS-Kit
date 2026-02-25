@@ -21,6 +21,7 @@ export const DEFAULT_THEME = {
     "--color-error": "#e82f21",
     "--color-error-content": "#ffffff",
     "--main-link-color": "inherit",
+    "--btn-primary-bg-image": "none",
   },
   dark: {
     "--color-primary": "#2386d1",
@@ -44,5 +45,6 @@ export const DEFAULT_THEME = {
     "--color-error": "#e82f21",
     "--color-error-content": "#ffffff",
     "--main-link-color": "inherit",
+    "--btn-primary-bg-image": "none",
   },
 }
